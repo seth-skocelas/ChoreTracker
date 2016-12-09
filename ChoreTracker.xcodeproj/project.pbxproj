@@ -13,6 +13,12 @@
 		9719927E1DE2B11B00800A28 /* ChoreTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9719927C1DE2B11B00800A28 /* ChoreTracker.xcdatamodeld */; };
 		971992801DE2B11B00800A28 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9719927F1DE2B11B00800A28 /* Assets.xcassets */; };
 		971992831DE2B11B00800A28 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 971992811DE2B11B00800A28 /* LaunchScreen.storyboard */; };
+		972A1C291DF368F300BADFED /* ChoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972A1C281DF368F300BADFED /* ChoreCell.swift */; };
+		972A1C2E1DF3736800BADFED /* ChoreType+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972A1C2A1DF3736800BADFED /* ChoreType+CoreDataClass.swift */; };
+		972A1C2F1DF3736800BADFED /* ChoreType+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972A1C2B1DF3736800BADFED /* ChoreType+CoreDataProperties.swift */; };
+		972A1C301DF3736800BADFED /* ChoreEvent+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972A1C2C1DF3736800BADFED /* ChoreEvent+CoreDataClass.swift */; };
+		972A1C311DF3736800BADFED /* ChoreEvent+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972A1C2D1DF3736800BADFED /* ChoreEvent+CoreDataProperties.swift */; };
+		972A1C371DF3FDE500BADFED /* ChoreDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972A1C361DF3FDE500BADFED /* ChoreDetailsVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +30,12 @@
 		9719927F1DE2B11B00800A28 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		971992821DE2B11B00800A28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		971992841DE2B11B00800A28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		972A1C281DF368F300BADFED /* ChoreCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChoreCell.swift; sourceTree = "<group>"; };
+		972A1C2A1DF3736800BADFED /* ChoreType+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ChoreType+CoreDataClass.swift"; sourceTree = "<group>"; };
+		972A1C2B1DF3736800BADFED /* ChoreType+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ChoreType+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		972A1C2C1DF3736800BADFED /* ChoreEvent+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ChoreEvent+CoreDataClass.swift"; sourceTree = "<group>"; };
+		972A1C2D1DF3736800BADFED /* ChoreEvent+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ChoreEvent+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		972A1C361DF3FDE500BADFED /* ChoreDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChoreDetailsVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,8 +68,11 @@
 		971992741DE2B11B00800A28 /* ChoreTracker */ = {
 			isa = PBXGroup;
 			children = (
+				972A1C351DF3FD9000BADFED /* Controller */,
+				972A1C341DF393C800BADFED /* View */,
+				972A1C331DF3738600BADFED /* Generated */,
+				972A1C321DF3737200BADFED /* Model */,
 				971992751DE2B11B00800A28 /* AppDelegate.swift */,
-				971992771DE2B11B00800A28 /* ViewController.swift */,
 				971992791DE2B11B00800A28 /* Main.storyboard */,
 				9719927F1DE2B11B00800A28 /* Assets.xcassets */,
 				971992811DE2B11B00800A28 /* LaunchScreen.storyboard */,
@@ -65,6 +80,41 @@
 				9719927C1DE2B11B00800A28 /* ChoreTracker.xcdatamodeld */,
 			);
 			path = ChoreTracker;
+			sourceTree = "<group>";
+		};
+		972A1C321DF3737200BADFED /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				972A1C2A1DF3736800BADFED /* ChoreType+CoreDataClass.swift */,
+				972A1C2C1DF3736800BADFED /* ChoreEvent+CoreDataClass.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		972A1C331DF3738600BADFED /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				972A1C2B1DF3736800BADFED /* ChoreType+CoreDataProperties.swift */,
+				972A1C2D1DF3736800BADFED /* ChoreEvent+CoreDataProperties.swift */,
+			);
+			name = Generated;
+			sourceTree = "<group>";
+		};
+		972A1C341DF393C800BADFED /* View */ = {
+			isa = PBXGroup;
+			children = (
+				972A1C281DF368F300BADFED /* ChoreCell.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		972A1C351DF3FD9000BADFED /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				971992771DE2B11B00800A28 /* ViewController.swift */,
+				972A1C361DF3FDE500BADFED /* ChoreDetailsVC.swift */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,8 +191,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				9719927E1DE2B11B00800A28 /* ChoreTracker.xcdatamodeld in Sources */,
+				972A1C2F1DF3736800BADFED /* ChoreType+CoreDataProperties.swift in Sources */,
+				972A1C2E1DF3736800BADFED /* ChoreType+CoreDataClass.swift in Sources */,
 				971992781DE2B11B00800A28 /* ViewController.swift in Sources */,
+				972A1C371DF3FDE500BADFED /* ChoreDetailsVC.swift in Sources */,
+				972A1C311DF3736800BADFED /* ChoreEvent+CoreDataProperties.swift in Sources */,
 				971992761DE2B11B00800A28 /* AppDelegate.swift in Sources */,
+				972A1C291DF368F300BADFED /* ChoreCell.swift in Sources */,
+				972A1C301DF3736800BADFED /* ChoreEvent+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,6 +362,7 @@
 				971992891DE2B11B00800A28 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
