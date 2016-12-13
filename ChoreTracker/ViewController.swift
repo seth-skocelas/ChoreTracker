@@ -112,7 +112,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         let fetchRequest: NSFetchRequest<ChoreEvent> = ChoreEvent.fetchRequest()
         let dateSort = NSSortDescriptor(key: "date", ascending: false)
-        fetchRequest.sortDescriptors = [dateSort]
+        let nameSort = NSSortDescriptor(key: "choreType.name", ascending: true)
+        
+        if segment.selectedSegmentIndex == 0 {
+            
+            fetchRequest.sortDescriptors = [dateSort]
+            
+        } else if segment.selectedSegmentIndex == 1 {
+            
+            fetchRequest.sortDescriptors = [nameSort]
+            
+        }
         
         let controller = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
         controller.delegate = self
@@ -129,6 +139,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             print("\(error)")
             
         }
+        
+    }
+    
+    
+    @IBAction func segmentChanged(_ sender: Any) {
+        
+        attemptFetch()
+        tableView.reloadData()
         
     }
     
