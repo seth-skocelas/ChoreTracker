@@ -30,6 +30,8 @@ class ChoreDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         notes!.layer.borderWidth = 1
         notes!.layer.borderColor = UIColor.black.cgColor
         
+        self.automaticallyAdjustsScrollViewInsets = false;
+        
         
         //createChoreTypes()
         getChores()

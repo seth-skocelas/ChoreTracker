@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ChoreTracker/ChoreDetailsVC.swift"
-            timestampString = "502768904.533915"
+            timestampString = "503372506.676705"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "163"
-            endingLineNumber = "163"
+            startingLineNumber = "165"
+            endingLineNumber = "165"
             landmarkName = "loadItemData()"
             landmarkType = "7">
          </BreakpointContent>
