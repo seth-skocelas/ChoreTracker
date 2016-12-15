@@ -269,6 +269,7 @@
                         <outlet property="chorePicker" destination="gSP-bx-bxh" id="MlV-kA-Uvg"/>
                         <outlet property="datePicker" destination="rR8-t0-687" id="uxv-Qb-ANL"/>
                         <outlet property="notes" destination="iZ4-ud-VgE" id="vJF-qv-S1e"/>
+                        <outlet property="scrollView" destination="dZE-P9-a8N" id="9aK-6T-YNB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kdq-MX-BRP" userLabel="First Responder" sceneMemberID="firstResponder"/>
