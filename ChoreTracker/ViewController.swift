@@ -15,6 +15,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var segment: UISegmentedControl!
     
     var controller: NSFetchedResultsController<ChoreEvent>!
+
     
     
     

@@ -42,8 +42,10 @@ class ChoreDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         notificationCenter.addObserver(self, selector: #selector(retrieveKeyboardSize), name: Notification.Name.UIKeyboardWillShow, object: nil)
 
         
+        if (!doChoreTypesExist()) {
+            createChoreTypes()
+        }
         
-        //createChoreTypes()
         getChores()
         
         if itemToEdit != nil {
@@ -114,8 +116,14 @@ class ChoreDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         let chore6 = ChoreType(context: context)
         chore6.name = "Laundry"
         
+        let chore7 = ChoreType(context: context)
+        chore7.name = "Groceries"
+        
         let chore8 = ChoreType(context: context)
         chore8.name = "Comforter"
+        
+        let chore9 = ChoreType(context: context)
+        chore9.name = "Dusting"
         
         ad.saveContext()
         
@@ -125,10 +133,13 @@ class ChoreDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     func getChores() {
         
         let fetchRequest: NSFetchRequest<ChoreType> = ChoreType.fetchRequest()
+        let nameSort = NSSortDescriptor(key: "name", ascending: true)
+        fetchRequest.sortDescriptors = [nameSort]
         
         do {
             
             self.chores = try context.fetch(fetchRequest)
+            
             self.chorePicker.reloadAllComponents()
             
         } catch {
@@ -290,6 +301,32 @@ class ChoreDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         scrollView.contentSize = CGSize(width: 300, height: 600)
         
     }
+    
+    func doChoreTypesExist() -> Bool {
+        
+        let fetchRequest: NSFetchRequest<ChoreType> = ChoreType.fetchRequest()
+        
+        do {
+            
+            let chores = try context.fetch(fetchRequest)
+            if chores.count == 0 {
+                
+                return false
+                
+            } else {
+                
+                return true
+            }
+            
+        } catch {
+            
+            //this needs to be handled properly
+            return false
+            
+        }
+        
+    }
+
 
     
     
