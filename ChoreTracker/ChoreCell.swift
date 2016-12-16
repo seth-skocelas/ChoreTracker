@@ -20,7 +20,8 @@ class ChoreCell: UITableViewCell {
         formatter.dateFormat = "MM-dd-yyyy"
         
         choreName.text = chore.choreType?.name
-        completionDate.text = formatter.string(from: chore.date as! Date)
+        //completionDate.text = formatter.string(from: chore.date as! Date)
+        completionDate.text = (chore.date as! Date).getElapsedInterval()
         choreNotes.text = chore.notes
         
     }
