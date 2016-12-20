@@ -20,6 +20,13 @@
 		972A1C301DF3736800BADFED /* ChoreEvent+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972A1C2C1DF3736800BADFED /* ChoreEvent+CoreDataClass.swift */; };
 		972A1C311DF3736800BADFED /* ChoreEvent+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972A1C2D1DF3736800BADFED /* ChoreEvent+CoreDataProperties.swift */; };
 		972A1C371DF3FDE500BADFED /* ChoreDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972A1C361DF3FDE500BADFED /* ChoreDetailsVC.swift */; };
+		97CE88B61E08A9A400D1EFFF /* LeagueGothic-CondensedItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 97CE88B21E08A9A400D1EFFF /* LeagueGothic-CondensedItalic.ttf */; };
+		97CE88B71E08A9A400D1EFFF /* LeagueGothic-CondensedRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 97CE88B31E08A9A400D1EFFF /* LeagueGothic-CondensedRegular.ttf */; };
+		97CE88B81E08A9A400D1EFFF /* LeagueGothic-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 97CE88B41E08A9A400D1EFFF /* LeagueGothic-Italic.ttf */; };
+		97CE88B91E08A9A400D1EFFF /* LeagueGothic-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 97CE88B51E08A9A400D1EFFF /* LeagueGothic-Regular.ttf */; };
+		97DFBDB61E06126900C290C4 /* Junction-bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 97DFBDB31E06126900C290C4 /* Junction-bold.otf */; };
+		97DFBDB71E06126900C290C4 /* Junction-light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 97DFBDB41E06126900C290C4 /* Junction-light.otf */; };
+		97DFBDB81E06126900C290C4 /* Junction-regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 97DFBDB51E06126900C290C4 /* Junction-regular.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +45,13 @@
 		972A1C2C1DF3736800BADFED /* ChoreEvent+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ChoreEvent+CoreDataClass.swift"; sourceTree = "<group>"; };
 		972A1C2D1DF3736800BADFED /* ChoreEvent+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ChoreEvent+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		972A1C361DF3FDE500BADFED /* ChoreDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChoreDetailsVC.swift; sourceTree = "<group>"; };
+		97CE88B21E08A9A400D1EFFF /* LeagueGothic-CondensedItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LeagueGothic-CondensedItalic.ttf"; sourceTree = "<group>"; };
+		97CE88B31E08A9A400D1EFFF /* LeagueGothic-CondensedRegular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LeagueGothic-CondensedRegular.ttf"; sourceTree = "<group>"; };
+		97CE88B41E08A9A400D1EFFF /* LeagueGothic-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LeagueGothic-Italic.ttf"; sourceTree = "<group>"; };
+		97CE88B51E08A9A400D1EFFF /* LeagueGothic-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LeagueGothic-Regular.ttf"; sourceTree = "<group>"; };
+		97DFBDB31E06126900C290C4 /* Junction-bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Junction-bold.otf"; sourceTree = "<group>"; };
+		97DFBDB41E06126900C290C4 /* Junction-light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Junction-light.otf"; sourceTree = "<group>"; };
+		97DFBDB51E06126900C290C4 /* Junction-regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Junction-regular.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +84,7 @@
 		971992741DE2B11B00800A28 /* ChoreTracker */ = {
 			isa = PBXGroup;
 			children = (
+				97DFBDB21E06125300C290C4 /* Fonts */,
 				972A1C321DF3737200BADFED /* Model */,
 				972A1C331DF3738600BADFED /* Generated */,
 				972A1C341DF393C800BADFED /* View */,
@@ -126,6 +141,20 @@
 				972A1C361DF3FDE500BADFED /* ChoreDetailsVC.swift */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		97DFBDB21E06125300C290C4 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				97CE88B21E08A9A400D1EFFF /* LeagueGothic-CondensedItalic.ttf */,
+				97CE88B31E08A9A400D1EFFF /* LeagueGothic-CondensedRegular.ttf */,
+				97CE88B41E08A9A400D1EFFF /* LeagueGothic-Italic.ttf */,
+				97CE88B51E08A9A400D1EFFF /* LeagueGothic-Regular.ttf */,
+				97DFBDB31E06126900C290C4 /* Junction-bold.otf */,
+				97DFBDB41E06126900C290C4 /* Junction-light.otf */,
+				97DFBDB51E06126900C290C4 /* Junction-regular.otf */,
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -188,9 +217,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97CE88B91E08A9A400D1EFFF /* LeagueGothic-Regular.ttf in Resources */,
+				97CE88B71E08A9A400D1EFFF /* LeagueGothic-CondensedRegular.ttf in Resources */,
+				97DFBDB81E06126900C290C4 /* Junction-regular.otf in Resources */,
+				97DFBDB71E06126900C290C4 /* Junction-light.otf in Resources */,
+				97DFBDB61E06126900C290C4 /* Junction-bold.otf in Resources */,
 				971992831DE2B11B00800A28 /* LaunchScreen.storyboard in Resources */,
+				97CE88B81E08A9A400D1EFFF /* LeagueGothic-Italic.ttf in Resources */,
 				971992801DE2B11B00800A28 /* Assets.xcassets in Resources */,
 				9719927B1DE2B11B00800A28 /* Main.storyboard in Resources */,
+				97CE88B61E08A9A400D1EFFF /* LeagueGothic-CondensedItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

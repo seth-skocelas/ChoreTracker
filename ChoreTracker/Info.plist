@@ -41,5 +41,15 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>LeagueGothic-CondensedItalic.ttf</string>
+		<string>LeagueGothic-Regular.ttf</string>
+		<string>LeagueGothic-CondensedRegular.ttf</string>
+		<string>LeagueGothic-Italic.ttf</string>
+		<string>Junction-bold.otf</string>
+		<string>Junction-light.otf</string>
+		<string>Junction-regular.otf</string>
+	</array>
 </dict>
 </plist>

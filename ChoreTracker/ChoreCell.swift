@@ -24,6 +24,9 @@ class ChoreCell: UITableViewCell {
         completionDate.text = (chore.date as! Date).getElapsedInterval()
         choreNotes.text = chore.notes
         
+        choreNotes!.layer.borderWidth = 1
+        choreNotes!.layer.borderColor = UIColor.black.cgColor
+        
     }
 
 
