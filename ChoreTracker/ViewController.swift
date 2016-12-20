@@ -121,7 +121,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             
         } else if segment.selectedSegmentIndex == 1 {
             
-            fetchRequest.sortDescriptors = [nameSort]
+            fetchRequest.sortDescriptors = [nameSort, dateSort]
             
         }
         
