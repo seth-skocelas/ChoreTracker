@@ -265,14 +265,39 @@ class ChoreDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     
     func preventKeyboardFromBlockingText () {
         
-        let contentInsets: UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize!.height, 0.0)
+        //dirty hack, don't know why keyboard notification isn't working, hard coding value
+        //fix this later!!!! (See eariler commit)
+        
+        var contentInsets: UIEdgeInsets
+        
+        if (keyboardSize == nil) {
+        
+            contentInsets = UIEdgeInsetsMake(0.0, 0.0, 224, 0.0)
+            
+        } else {
+            
+            contentInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize!.height, 0.0)
+            
+        }
         scrollView.contentInset = contentInsets
         scrollView.scrollIndicatorInsets = contentInsets
         
         // If active text field is hidden by keyboard, scroll it so it's visible
         // Your app might not need or want this behavior.
         var aRect: CGRect = self.view.frame
-        aRect.size.height -= (keyboardSize?.height)!
+        
+        //dirty hack, don't know why keyboard notification isn't working, hard coding value
+        //fix this later!!!!
+        
+        if (keyboardSize == nil) {
+            
+            aRect.size.height -= (224)
+            
+        } else {
+            
+            aRect.size.height -= (keyboardSize?.height)!
+        }
+        
         let activeTextFieldRect: CGRect? = activeTextView?.frame
         scrollView.scrollRectToVisible(activeTextFieldRect!, animated:true)
         

@@ -10,12 +10,12 @@ import UIKit
 import CoreData
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
-
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var segment: UISegmentedControl!
     
-    var controller: NSFetchedResultsController<ChoreEvent>!
-
+    var controller: NSFetchedResultsController<ChoreType>!
+    
     
     
     
@@ -26,10 +26,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.delegate = self
         tableView.dataSource = self
         
+        //createChoreTypes()
         //generateTestData()
         attemptFetch()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -37,7 +38,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func configureCell (cell: ChoreCell, indexPath: NSIndexPath){
         
-        let chore = controller.object(at: indexPath as IndexPath)
+        let choreType = controller.object(at: indexPath as IndexPath)
+        
+        let chore = getRecentChoreEvent(choreType: choreType)
+        
+        
         cell.configureCell(chore: chore)
         
     }
@@ -111,19 +116,23 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func attemptFetch() {
         
-        let fetchRequest: NSFetchRequest<ChoreEvent> = ChoreEvent.fetchRequest()
-        let dateSort = NSSortDescriptor(key: "date", ascending: false)
-        let nameSort = NSSortDescriptor(key: "choreType.name", ascending: true)
+        let fetchRequest: NSFetchRequest<ChoreType> = ChoreType.fetchRequest()
+        //let dateSort = NSSortDescriptor(key: "date", ascending: false)
+        let nameSort = NSSortDescriptor(key: "name", ascending: true)
         
-        if segment.selectedSegmentIndex == 0 {
-            
-            fetchRequest.sortDescriptors = [dateSort]
-            
-        } else if segment.selectedSegmentIndex == 1 {
-            
-            fetchRequest.sortDescriptors = [nameSort, dateSort]
-            
-        }
+        /*
+         if segment.selectedSegmentIndex == 0 {
+         
+         fetchRequest.sortDescriptors = [dateSort]
+         
+         } else if segment.selectedSegmentIndex == 1 {
+         
+         fetchRequest.sortDescriptors = [nameSort, dateSort]
+         
+         }
+         */
+        
+        fetchRequest.sortDescriptors = [nameSort]
         
         let controller = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
         controller.delegate = self
@@ -207,7 +216,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let choreType = ChoreType(context: context)
         choreType.name = "Vacuum"
         
-
+        
         let chore = ChoreEvent(context: context)
         chore.choreType = choreType
         chore.date = NSDate(timeIntervalSinceNow: 0)
@@ -221,14 +230,66 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         chore2.date = NSDate(timeIntervalSinceNow: 0)
         chore2.notes = "Chore 2"
         
-
+        
+        ad.saveContext()
+        
+        
+    }
+    
+    func getRecentChoreEvent(choreType: ChoreType) -> ChoreEvent {
+        
+        var chores = [ChoreEvent]()
+        
+        let fetchRequest: NSFetchRequest<ChoreEvent> = ChoreEvent.fetchRequest()
+        let dateSort = NSSortDescriptor(key: "date", ascending: false)
+        fetchRequest.sortDescriptors = [dateSort]
+        fetchRequest.predicate = NSPredicate(format: "choreType.name == %@", choreType.name!)
+        //fetchRequest.fetchLimit = 1
+        
+        do {
+            
+            chores = try context.fetch(fetchRequest)
+            
+        } catch {
+            
+            print("made it")
+            
+        }
+        
+        if chores.count == 0 {
+            
+            let chore = ChoreEvent(context: context)
+            chore.choreType = choreType
+            
+            return chore
+            
+        }
+        
+        return chores[0]
+        
+    }
+    
+    
+    func createChoreTypes() {
+        
+        let chore = ChoreType(context: context)
+        chore.name = "Vacuum"
+        
+        let chore2 = ChoreType(context: context)
+        chore2.name = "Mop"
+        
+        let chore3 = ChoreType(context: context)
+        chore3.name = "Test"
+        
         ad.saveContext()
         
         
     }
     
     
-
-
+    
+    
+    
+    
 }
 
