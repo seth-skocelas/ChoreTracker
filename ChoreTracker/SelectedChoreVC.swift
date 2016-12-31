@@ -13,13 +13,10 @@ class SelectedChoreVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var segment: UISegmentedControl!
+
+    var controller: NSFetchedResultsController<ChoreEvent>!
     
-    
-    
-    var controller: NSFetchedResultsController<ChoreType>!
-    var itemToEdit: ChoreType?
-    
-    
+    var itemToEdit: ChoreType? 
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +25,6 @@ class SelectedChoreVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         tableView.delegate = self
         tableView.dataSource = self
         
-        //createChoreTypes()
         //generateTestData()
         attemptFetch()
     }
@@ -38,13 +34,9 @@ class SelectedChoreVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         // Dispose of any resources that can be recreated.
     }
     
-    func configureCell (cell: ChoreCell, indexPath: NSIndexPath){
+    func configureCell (cell: SelectedChoreCell, indexPath: NSIndexPath){
         
-        let choreType = controller.object(at: indexPath as IndexPath)
-        
-        let chore = getRecentChoreEvent(choreType: choreType)
-        
-        
+        let chore = controller.object(at: indexPath as IndexPath)
         cell.configureCell(chore: chore)
         
     }
@@ -81,7 +73,7 @@ class SelectedChoreVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ChoreCell", for: indexPath) as! ChoreCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SelectedChoreCell", for: indexPath) as! SelectedChoreCell
         configureCell(cell: cell, indexPath: indexPath as NSIndexPath)
         return cell
         
@@ -118,23 +110,19 @@ class SelectedChoreVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     func attemptFetch() {
         
-        let fetchRequest: NSFetchRequest<ChoreType> = ChoreType.fetchRequest()
-        //let dateSort = NSSortDescriptor(key: "date", ascending: false)
-        let nameSort = NSSortDescriptor(key: "name", ascending: true)
+        let fetchRequest: NSFetchRequest<ChoreEvent> = ChoreEvent.fetchRequest()
+        let dateSort = NSSortDescriptor(key: "date", ascending: false)
+        let nameSort = NSSortDescriptor(key: "choreType.name", ascending: true)
         
-        /*
-         if segment.selectedSegmentIndex == 0 {
-         
-         fetchRequest.sortDescriptors = [dateSort]
-         
-         } else if segment.selectedSegmentIndex == 1 {
-         
-         fetchRequest.sortDescriptors = [nameSort, dateSort]
-         
-         }
-         */
-        
-        fetchRequest.sortDescriptors = [nameSort]
+        if segment.selectedSegmentIndex == 0 {
+            
+            fetchRequest.sortDescriptors = [dateSort]
+            
+        } else if segment.selectedSegmentIndex == 1 {
+            
+            fetchRequest.sortDescriptors = [nameSort, dateSort]
+            
+        }
         
         let controller = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
         controller.delegate = self
@@ -194,7 +182,7 @@ class SelectedChoreVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         case.update:
             if let indexPath = indexPath {
                 
-                let cell = tableView.cellForRow(at: indexPath) as! ChoreCell
+                let cell = tableView.cellForRow(at: indexPath) as! SelectedChoreCell
                 configureCell(cell: cell, indexPath: indexPath as NSIndexPath)
                 
             }
@@ -238,60 +226,7 @@ class SelectedChoreVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         
     }
     
-    func getRecentChoreEvent(choreType: ChoreType) -> ChoreEvent {
-        
-        var chores = [ChoreEvent]()
-        
-        let fetchRequest: NSFetchRequest<ChoreEvent> = ChoreEvent.fetchRequest()
-        let dateSort = NSSortDescriptor(key: "date", ascending: false)
-        fetchRequest.sortDescriptors = [dateSort]
-        fetchRequest.predicate = NSPredicate(format: "choreType.name == %@", choreType.name!)
-        //fetchRequest.fetchLimit = 1
-        
-        do {
-            
-            chores = try context.fetch(fetchRequest)
-            
-        } catch {
-            
-            print("made it")
-            
-        }
-        
-        if chores.count == 0 {
-            
-            let chore = ChoreEvent(context: context)
-            chore.choreType = choreType
-            
-            return chore
-            
-        }
-        
-        return chores[0]
-        
-    }
-    
-    
-    func createChoreTypes() {
-        
-        let chore = ChoreType(context: context)
-        chore.name = "Vacuum"
-        
-        let chore2 = ChoreType(context: context)
-        chore2.name = "Mop"
-        
-        let chore3 = ChoreType(context: context)
-        chore3.name = "Test"
-        
-        ad.saveContext()
-        
-        
-    }
-    
-    
-    
     
     
     
 }
-

@@ -191,7 +191,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ChoreCell" rowHeight="144" id="WU7-j6-hXb" customClass="ChoreCell" customModule="ChoreTracker" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SelectedChoreCell" rowHeight="144" id="WU7-j6-hXb" customClass="SelectedChoreCell" customModule="ChoreTracker" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="343" height="144"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WU7-j6-hXb" id="1I2-F9-SUv">
@@ -250,9 +250,9 @@
                                                     </constraints>
                                                 </tableViewCellContentView>
                                                 <connections>
-                                                    <outlet property="choreName" destination="iaq-nO-SQp" id="guv-so-3gY"/>
-                                                    <outlet property="choreNotes" destination="RZr-gg-rzh" id="QLQ-SS-b5x"/>
-                                                    <outlet property="completionDate" destination="wyl-xF-2EP" id="XFb-sA-e5h"/>
+                                                    <outlet property="choreName" destination="iaq-nO-SQp" id="6LP-G5-jpG"/>
+                                                    <outlet property="choreNotes" destination="RZr-gg-rzh" id="DQT-GB-UJV"/>
+                                                    <outlet property="completionDate" destination="wyl-xF-2EP" id="5zO-QR-KbP"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>
