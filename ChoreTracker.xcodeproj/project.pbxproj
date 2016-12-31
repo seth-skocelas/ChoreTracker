@@ -20,6 +20,7 @@
 		972A1C301DF3736800BADFED /* ChoreEvent+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972A1C2C1DF3736800BADFED /* ChoreEvent+CoreDataClass.swift */; };
 		972A1C311DF3736800BADFED /* ChoreEvent+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972A1C2D1DF3736800BADFED /* ChoreEvent+CoreDataProperties.swift */; };
 		972A1C371DF3FDE500BADFED /* ChoreDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972A1C361DF3FDE500BADFED /* ChoreDetailsVC.swift */; };
+		975A4A101E14B915003CD14D /* SelectedChoreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975A4A0F1E14B915003CD14D /* SelectedChoreVC.swift */; };
 		97CE88B61E08A9A400D1EFFF /* LeagueGothic-CondensedItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 97CE88B21E08A9A400D1EFFF /* LeagueGothic-CondensedItalic.ttf */; };
 		97CE88B71E08A9A400D1EFFF /* LeagueGothic-CondensedRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 97CE88B31E08A9A400D1EFFF /* LeagueGothic-CondensedRegular.ttf */; };
 		97CE88B81E08A9A400D1EFFF /* LeagueGothic-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 97CE88B41E08A9A400D1EFFF /* LeagueGothic-Italic.ttf */; };
@@ -45,6 +46,7 @@
 		972A1C2C1DF3736800BADFED /* ChoreEvent+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ChoreEvent+CoreDataClass.swift"; sourceTree = "<group>"; };
 		972A1C2D1DF3736800BADFED /* ChoreEvent+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ChoreEvent+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		972A1C361DF3FDE500BADFED /* ChoreDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChoreDetailsVC.swift; sourceTree = "<group>"; };
+		975A4A0F1E14B915003CD14D /* SelectedChoreVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedChoreVC.swift; sourceTree = "<group>"; };
 		97CE88B21E08A9A400D1EFFF /* LeagueGothic-CondensedItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LeagueGothic-CondensedItalic.ttf"; sourceTree = "<group>"; };
 		97CE88B31E08A9A400D1EFFF /* LeagueGothic-CondensedRegular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LeagueGothic-CondensedRegular.ttf"; sourceTree = "<group>"; };
 		97CE88B41E08A9A400D1EFFF /* LeagueGothic-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LeagueGothic-Italic.ttf"; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 			children = (
 				971992771DE2B11B00800A28 /* ViewController.swift */,
 				972A1C361DF3FDE500BADFED /* ChoreDetailsVC.swift */,
+				975A4A0F1E14B915003CD14D /* SelectedChoreVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -241,6 +244,7 @@
 				972A1C2F1DF3736800BADFED /* ChoreType+CoreDataProperties.swift in Sources */,
 				972A1C2E1DF3736800BADFED /* ChoreType+CoreDataClass.swift in Sources */,
 				9725747C1E03BD920055B971 /* Date+getElapsedInterval.swift in Sources */,
+				975A4A101E14B915003CD14D /* SelectedChoreVC.swift in Sources */,
 				971992781DE2B11B00800A28 /* ViewController.swift in Sources */,
 				972A1C371DF3FDE500BADFED /* ChoreDetailsVC.swift in Sources */,
 				972A1C311DF3736800BADFED /* ChoreEvent+CoreDataProperties.swift in Sources */,

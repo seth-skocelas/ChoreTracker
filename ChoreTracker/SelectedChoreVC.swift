@@ -9,13 +9,15 @@
 import UIKit
 import CoreData
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
+class SelectedChoreVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var segment: UISegmentedControl!
     
-    var controller: NSFetchedResultsController<ChoreType>!
     
+    
+    var controller: NSFetchedResultsController<ChoreType>!
+    var itemToEdit: ChoreType?
     
     
     
@@ -53,7 +55,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if let objs = controller.fetchedObjects, objs.count > 0 {
             
             let chore = objs[indexPath.row]
-            performSegue(withIdentifier: "SelectedChoreVC", sender: chore)
+            performSegue(withIdentifier: "ChoreDetailsVC", sender: chore)
             
         }
         
@@ -62,11 +64,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == "SelectedChoreVC" {
+        if segue.identifier == "ChoreDetailsVC" {
             
-            if let destination = segue.destination as? SelectedChoreVC {
+            if let destination = segue.destination as? ChoreDetailsVC {
                 
-                if let chore = sender as? ChoreType {
+                if let chore = sender as? ChoreEvent {
                     
                     destination.itemToEdit = chore
                 }
