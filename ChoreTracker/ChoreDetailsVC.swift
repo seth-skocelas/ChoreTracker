@@ -170,7 +170,12 @@ class ChoreDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDele
             
         }
         
-        choreTypes[0].mostRecent = chore.date
+        let currentChoreType = choreTypes[0]
+        
+        if  chore.date as! Date > currentChoreType.mostRecent as! Date {
+            choreTypes[0].mostRecent = chore.date
+        }
+        
         ad.saveContext()
 
         
