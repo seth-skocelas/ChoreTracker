@@ -24,6 +24,10 @@ class ChoreCell: UITableViewCell {
         if chore.date != nil {
             //completionDate.text = formatter.string(from: chore.date as! Date)
             completionDate.text = (chore.date as! Date).getElapsedInterval()
+        } else {
+            
+            completionDate.text = "No Entries"
+            
         }
         
         

@@ -117,22 +117,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func attemptFetch() {
         
         let fetchRequest: NSFetchRequest<ChoreType> = ChoreType.fetchRequest()
-        //let dateSort = NSSortDescriptor(key: "date", ascending: false)
+        let dateSort = NSSortDescriptor(key: "mostRecent", ascending: false)
         let nameSort = NSSortDescriptor(key: "name", ascending: true)
         
-        /*
-         if segment.selectedSegmentIndex == 0 {
-         
-         fetchRequest.sortDescriptors = [dateSort]
-         
-         } else if segment.selectedSegmentIndex == 1 {
-         
-         fetchRequest.sortDescriptors = [nameSort, dateSort]
-         
-         }
-         */
         
-        fetchRequest.sortDescriptors = [nameSort]
+        if segment.selectedSegmentIndex == 0 {
+         
+            fetchRequest.sortDescriptors = [dateSort, nameSort]
+         
+        } else if segment.selectedSegmentIndex == 1 {
+         
+            fetchRequest.sortDescriptors = [nameSort, dateSort]
+         
+        }
+        
         
         let controller = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
         controller.delegate = self

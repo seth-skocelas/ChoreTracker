@@ -111,16 +111,18 @@ class SelectedChoreVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     func attemptFetch() {
         
         let fetchRequest: NSFetchRequest<ChoreEvent> = ChoreEvent.fetchRequest()
-        let dateSort = NSSortDescriptor(key: "date", ascending: false)
-        let nameSort = NSSortDescriptor(key: "choreType.name", ascending: true)
+        let ascDateSort = NSSortDescriptor(key: "date", ascending: true)
+        let descDateSort = NSSortDescriptor(key: "date", ascending: false)
+        
+        fetchRequest.predicate = NSPredicate(format: "date != nil and choreType.name == %@", (itemToEdit?.name)!)
         
         if segment.selectedSegmentIndex == 0 {
             
-            fetchRequest.sortDescriptors = [dateSort]
+            fetchRequest.sortDescriptors = [descDateSort]
             
         } else if segment.selectedSegmentIndex == 1 {
             
-            fetchRequest.sortDescriptors = [nameSort, dateSort]
+            fetchRequest.sortDescriptors = [ascDateSort]
             
         }
         
@@ -143,12 +145,14 @@ class SelectedChoreVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
     
     
+    
     @IBAction func segmentChanged(_ sender: Any) {
         
         attemptFetch()
         tableView.reloadData()
         
     }
+    
     
     
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
@@ -199,32 +203,6 @@ class SelectedChoreVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         
     }
     
-    
-    func generateTestData() {
-        
-        
-        let choreType = ChoreType(context: context)
-        choreType.name = "Vacuum"
-        
-        
-        let chore = ChoreEvent(context: context)
-        chore.choreType = choreType
-        chore.date = NSDate(timeIntervalSinceNow: 0)
-        chore.notes = "Chore 1"
-        
-        let choreType2 = ChoreType(context: context)
-        choreType2.name = "Mop"
-        
-        let chore2 = ChoreEvent(context: context)
-        chore2.choreType = choreType2
-        chore2.date = NSDate(timeIntervalSinceNow: 0)
-        chore2.notes = "Chore 2"
-        
-        
-        ad.saveContext()
-        
-        
-    }
     
     
     

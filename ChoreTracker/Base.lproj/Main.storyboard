@@ -184,6 +184,7 @@
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <action selector="segmentChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="NBL-9s-sz9"/>
+                                            <action selector="segmentChanged:" destination="XU5-ss-Fr9" eventType="valueChanged" id="h8Q-vk-25E"/>
                                         </connections>
                                     </segmentedControl>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="144" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="K3Y-hH-3hI">
@@ -275,6 +276,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="Filtered Results" id="2MX-NU-weu">
                         <barButtonItem key="backBarButtonItem" title="Main" id="oCH-95-4Za"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="YzU-4s-6dR">
+                            <connections>
+                                <segue destination="zm4-W2-AX7" kind="show" identifier="ChoreDetailsVCNew" id="9Qy-6f-Gtp"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="segment" destination="z6J-nV-mAa" id="0YG-yS-2H1"/>
@@ -422,5 +428,8 @@
             <point key="canvasLocation" x="956" y="122.78860569715144"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="9Qy-6f-Gtp"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>

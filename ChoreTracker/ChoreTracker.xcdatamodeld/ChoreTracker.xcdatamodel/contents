@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11232" systemVersion="16B2555" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="16C67" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="ChoreEvent" representedClassName=".ChoreEvent" syncable="YES">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="notes" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="choreType" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ChoreType" inverseName="choreEvent" inverseEntity="ChoreType" syncable="YES"/>
     </entity>
     <entity name="ChoreType" representedClassName=".ChoreType" syncable="YES">
+        <attribute name="mostRecent" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="choreEvent" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ChoreEvent" inverseName="choreType" inverseEntity="ChoreEvent" syncable="YES"/>
     </entity>
     <elements>
         <element name="ChoreEvent" positionX="34" positionY="-378" width="128" height="88"/>
-        <element name="ChoreType" positionX="-549" positionY="-237" width="128" height="73"/>
+        <element name="ChoreType" positionX="-549" positionY="-237" width="128" height="90"/>
     </elements>
 </model>

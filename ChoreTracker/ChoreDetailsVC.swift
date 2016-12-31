@@ -149,6 +149,34 @@ class ChoreDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         }
         
     }
+    
+    
+    func saveMostRecentChoreTypeDate (chore: ChoreEvent) {
+        
+        var choreTypes = [ChoreType]()
+        
+        let fetchRequest: NSFetchRequest<ChoreType> = ChoreType.fetchRequest()
+        let nameSort = NSSortDescriptor(key: "name", ascending: true)
+        fetchRequest.sortDescriptors = [nameSort]
+        fetchRequest.predicate = NSPredicate(format: "name = %@", (chore.choreType?.name)!)
+        
+        do {
+            
+            choreTypes = try context.fetch(fetchRequest)
+            
+        } catch {
+            
+            //handle this
+            
+        }
+        
+        choreTypes[0].mostRecent = chore.date
+        ad.saveContext()
+
+        
+        
+    }
+    
 
     @IBAction func savePressed(_ sender: UIButton) {
         
@@ -170,6 +198,8 @@ class ChoreDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         }
         
         ad.saveContext()
+        
+        saveMostRecentChoreTypeDate(chore: chore)
         
         _ = navigationController?.popViewController(animated: true)
         

@@ -2,7 +2,7 @@
 //  ChoreType+CoreDataProperties.swift
 //  ChoreTracker
 //
-//  Created by Seth Skocelas on 12/3/16.
+//  Created by Seth Skocelas on 12/31/16.
 //  Copyright © 2016 Seth Skocelas. All rights reserved.
 //
 
@@ -17,6 +17,7 @@ extension ChoreType {
     }
 
     @NSManaged public var name: String?
+    @NSManaged public var mostRecent: NSDate?
     @NSManaged public var choreEvent: NSSet?
 
 }
