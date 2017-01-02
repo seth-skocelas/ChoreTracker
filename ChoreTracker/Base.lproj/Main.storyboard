@@ -19,7 +19,7 @@
         <scene sceneID="jwU-ct-GtK">
             <objects>
                 <navigationController id="RLN-yQ-5jg" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="YLB-kf-3VP">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="YLB-kf-3VP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
@@ -285,6 +285,7 @@
                     <connections>
                         <outlet property="segment" destination="z6J-nV-mAa" id="0YG-yS-2H1"/>
                         <outlet property="tableView" destination="K3Y-hH-3hI" id="TbI-kE-q6J"/>
+                        <segue destination="zm4-W2-AX7" kind="show" identifier="ChoreDetailsVC" id="gDF-YO-JSR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oGD-hT-DHs" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -429,7 +430,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="9Qy-6f-Gtp"/>
+        <segue reference="gDF-YO-JSR"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>
