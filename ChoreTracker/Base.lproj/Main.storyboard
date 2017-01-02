@@ -19,7 +19,7 @@
         <scene sceneID="jwU-ct-GtK">
             <objects>
                 <navigationController id="RLN-yQ-5jg" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="YLB-kf-3VP">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="YLB-kf-3VP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
@@ -187,9 +187,8 @@
                                             <action selector="segmentChanged:" destination="XU5-ss-Fr9" eventType="valueChanged" id="h8Q-vk-25E"/>
                                         </connections>
                                     </segmentedControl>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="144" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="K3Y-hH-3hI">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="144" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="K3Y-hH-3hI">
                                         <rect key="frame" x="16" y="121" width="343" height="538"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SelectedChoreCell" rowHeight="144" id="WU7-j6-hXb" customClass="SelectedChoreCell" customModule="ChoreTracker" customModuleProvider="target">
@@ -261,8 +260,14 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.72615770729999995" green="0.72615770729999995" blue="0.72615770729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstItem="K3Y-hH-3hI" firstAttribute="leading" secondItem="xgS-7W-fSV" secondAttribute="leading" constant="16" id="EUe-Jq-ywF"/>
+                                    <constraint firstItem="K3Y-hH-3hI" firstAttribute="top" secondItem="z6J-nV-mAa" secondAttribute="bottom" constant="13" id="PLR-Xw-5zB"/>
+                                    <constraint firstItem="z6J-nV-mAa" firstAttribute="centerX" secondItem="xgS-7W-fSV" secondAttribute="centerX" id="iUS-xb-vC1"/>
                                     <constraint firstItem="z6J-nV-mAa" firstAttribute="centerX" secondItem="xgS-7W-fSV" secondAttribute="centerX" id="p3y-ko-BT7"/>
                                     <constraint firstItem="z6J-nV-mAa" firstAttribute="top" secondItem="xgS-7W-fSV" secondAttribute="top" constant="80" id="pKN-5d-C9w"/>
+                                    <constraint firstItem="K3Y-hH-3hI" firstAttribute="centerX" secondItem="xgS-7W-fSV" secondAttribute="centerX" id="qf7-Fd-nDp"/>
+                                    <constraint firstAttribute="bottom" secondItem="K3Y-hH-3hI" secondAttribute="bottom" constant="8" id="riY-vg-sWx"/>
+                                    <constraint firstAttribute="trailing" secondItem="K3Y-hH-3hI" secondAttribute="trailing" constant="16" id="ypE-pe-g4P"/>
                                 </constraints>
                             </view>
                         </subviews>
