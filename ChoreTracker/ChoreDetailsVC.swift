@@ -151,7 +151,42 @@ class ChoreDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     }
     
     
-    func saveMostRecentChoreTypeDate (chore: ChoreEvent) {
+    func getRecentChoreEvent(choreType: ChoreType) -> ChoreEvent {
+        
+        var chores = [ChoreEvent]()
+        
+        let fetchRequest: NSFetchRequest<ChoreEvent> = ChoreEvent.fetchRequest()
+        let dateSort = NSSortDescriptor(key: "date", ascending: false)
+        fetchRequest.sortDescriptors = [dateSort]
+        fetchRequest.predicate = NSPredicate(format: "choreType.name == %@", choreType.name!)
+        //fetchRequest.fetchLimit = 1
+        
+        do {
+            
+            chores = try context.fetch(fetchRequest)
+            
+        } catch {
+            
+            print("made it")
+            
+        }
+        
+        if chores.count == 0 {
+            
+            let chore = ChoreEvent(context: context)
+            chore.choreType = choreType
+            
+            return chore
+            
+        }
+        
+        return chores[0]
+        
+    }
+
+    
+    
+    func saveMostRecentChoreTypeDate (chore: ChoreEvent, onDelete: Bool) {
         
         var choreTypes = [ChoreType]()
         
@@ -180,6 +215,9 @@ class ChoreDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDele
             
             choreTypes[0].mostRecent = chore.date
             
+        } else if (onDelete) {
+            
+            choreTypes[0].mostRecent = chore.date
         }
         
         ad.saveContext()
@@ -187,6 +225,9 @@ class ChoreDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         
         
     }
+    
+    
+    
     
 
     @IBAction func savePressed(_ sender: UIButton) {
@@ -210,14 +251,14 @@ class ChoreDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         
         ad.saveContext()
         
-        saveMostRecentChoreTypeDate(chore: chore)
+        saveMostRecentChoreTypeDate(chore: chore, onDelete: false)
         
         _ = navigationController?.popViewController(animated: true)
         
         
     }
     
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool //
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool
     {
         if(text == "\n")
         {
@@ -263,8 +304,15 @@ class ChoreDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         
         if itemToEdit != nil {
             
+            let currentChoreType = itemToEdit?.choreType
+            
             context.delete(itemToEdit!)
             ad.saveContext()
+            
+            let mostRecentChoreEvent = getRecentChoreEvent(choreType: currentChoreType!)
+            
+            saveMostRecentChoreTypeDate(chore: mostRecentChoreEvent, onDelete: true)
+    
         }
         
         _ = navigationController?.popViewController(animated: true)
