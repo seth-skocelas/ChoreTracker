@@ -29,6 +29,7 @@
                     </navigationBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="82Y-oc-vPH"/>
+                        <segue destination="zm4-W2-AX7" kind="show" identifier="aeChore" id="Ohc-D2-ffJ"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IWu-ee-SY1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -158,7 +159,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="86" y="123"/>
+            <point key="canvasLocation" x="-799" y="885"/>
         </scene>
         <!--Filtered Results-->
         <scene sceneID="XM4-2X-GGO">
@@ -295,12 +296,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oGD-hT-DHs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-210" y="896"/>
+            <point key="canvasLocation" x="628" y="885"/>
         </scene>
         <!--Add/Edit Chore-->
         <scene sceneID="vFf-PE-EDP">
             <objects>
-                <viewController id="zm4-W2-AX7" customClass="ChoreDetailsVC" customModule="ChoreTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="aeChore" id="zm4-W2-AX7" customClass="ChoreDetailsVC" customModule="ChoreTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="i7c-h5-Ewx"/>
                         <viewControllerLayoutGuide type="bottom" id="2Nv-8h-2AA"/>
@@ -431,11 +432,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kdq-MX-BRP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="956" y="122.78860569715144"/>
+            <point key="canvasLocation" x="1399" y="123"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="gDF-YO-JSR"/>
+        <segue reference="Ohc-D2-ffJ"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>
