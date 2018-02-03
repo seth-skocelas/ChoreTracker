@@ -5,12 +5,12 @@
 	<key>UIApplicationShortcutItems</key>
 	<array>
 		<dict>
+			<key>UIApplicationShortcutItemIconType</key>
+			<string>UIApplicationShortcutIconTypeAdd</string>
 			<key>UIApplicationShortcutItemTitle</key>
 			<string>Add ChoreEvent</string>
 			<key>UIApplicationShortcutItemType</key>
 			<string>com.SJS.ChoreTracker.addChoreEvent</string>
-			<key>UIApplicationShortcutItemIconType</key>
-			<string>UIApplicationShortcutIconTypeAdd</string>
 		</dict>
 	</array>
 	<key>CFBundleDevelopmentRegion</key>
