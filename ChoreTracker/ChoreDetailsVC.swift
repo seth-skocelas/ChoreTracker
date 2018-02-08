@@ -15,7 +15,8 @@ class ChoreDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     @IBOutlet weak var chorePicker: UIPickerView!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var notes: UITextView!
-    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet var mainView: UIView!
+    
     
     var chores = [ChoreType]()
     var itemToEdit: ChoreEvent?
@@ -25,7 +26,8 @@ class ChoreDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        mainView.bindToKeyboard()
         
         chorePicker.delegate = self
         chorePicker.dataSource = self
@@ -35,12 +37,6 @@ class ChoreDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         notes!.layer.borderWidth = 1
         notes!.layer.borderColor = UIColor.black.cgColor
         
-        self.automaticallyAdjustsScrollViewInsets = false;
-        
-        let notificationCenter = NotificationCenter.default
-        notificationCenter.addObserver(self, selector: #selector(keyboardWillHide), name: Notification.Name.UIKeyboardWillHide, object: nil)
-        notificationCenter.addObserver(self, selector: #selector(retrieveKeyboardSize), name: Notification.Name.UIKeyboardWillShow, object: nil)
-
         
         if (!doChoreTypesExist()) {
             createChoreTypes()
@@ -59,8 +55,7 @@ class ChoreDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     override func viewDidAppear(_ animated: Bool) {
         
         super.viewDidAppear(animated)
-        self.notes.becomeFirstResponder()
-        self.notes.resignFirstResponder()
+        notes.isScrollEnabled = false
 
     }
     
@@ -324,8 +319,7 @@ class ChoreDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         if (keyboardSizeRetrieved == true) {
             
             self.activeTextView = textView
-            scrollView.isScrollEnabled = true
-            preventKeyboardFromBlockingText()
+            //preventKeyboardFromBlockingText()
             
         }
         
@@ -336,7 +330,6 @@ class ChoreDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         if (keyboardSizeRetrieved == true) {
         
             self.activeTextView = nil
-            //scrollView.isScrollEnabled = false
             
         } else {
             
@@ -357,62 +350,12 @@ class ChoreDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         //dirty hack, don't know why keyboard notification isn't working, hard coding value
         //fix this later!!!! (See eariler commit)
         
-        var contentInsets: UIEdgeInsets
-        
-        if (keyboardSize == nil) {
-        
-            contentInsets = UIEdgeInsetsMake(0.0, 0.0, 224, 0.0)
-            
-        } else {
-            
-            contentInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize!.height, 0.0)
-            
-        }
-        scrollView.contentInset = contentInsets
-        scrollView.scrollIndicatorInsets = contentInsets
-        
-        // If active text field is hidden by keyboard, scroll it so it's visible
-        // Your app might not need or want this behavior.
-        var aRect: CGRect = self.view.frame
-        
-        //dirty hack, don't know why keyboard notification isn't working, hard coding value
-        //fix this later!!!!
-        
-        if (keyboardSize == nil) {
-            
-            aRect.size.height -= (224)
-            
-        } else {
-            
-            aRect.size.height -= (keyboardSize?.height)!
-        }
-        
-        let activeTextFieldRect: CGRect? = activeTextView?.frame
-        scrollView.scrollRectToVisible(activeTextFieldRect!, animated:true)
-        
-    }
-    
-    
-    func retrieveKeyboardSize(notification:NSNotification){
-        
-        let info: NSDictionary = notification.userInfo! as NSDictionary
-        let value: NSValue = info.value(forKey: UIKeyboardFrameBeginUserInfoKey) as! NSValue
-        keyboardSize = value.cgRectValue.size
-        
-        }
-    
-    func keyboardWillHide(notification:NSNotification){
-        
-        let contentInsets: UIEdgeInsets = UIEdgeInsets.zero
-        scrollView.contentInset = contentInsets
-        scrollView.scrollIndicatorInsets = contentInsets
-        
     }
     
     override func viewWillLayoutSubviews(){
         
         super.viewWillLayoutSubviews()
-        scrollView.contentSize = CGSize(width: 300, height: 600)
+
         
     }
     

@@ -22,6 +22,7 @@
 		972A1C311DF3736800BADFED /* ChoreEvent+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972A1C2D1DF3736800BADFED /* ChoreEvent+CoreDataProperties.swift */; };
 		972A1C371DF3FDE500BADFED /* ChoreDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972A1C361DF3FDE500BADFED /* ChoreDetailsVC.swift */; };
 		975A4A101E14B915003CD14D /* SelectedChoreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975A4A0F1E14B915003CD14D /* SelectedChoreVC.swift */; };
+		97B8BEBE202BFEC30049044A /* UIViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B8BEBD202BFEC30049044A /* UIViewExt.swift */; };
 		97CE88B61E08A9A400D1EFFF /* LeagueGothic-CondensedItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 97CE88B21E08A9A400D1EFFF /* LeagueGothic-CondensedItalic.ttf */; };
 		97CE88B71E08A9A400D1EFFF /* LeagueGothic-CondensedRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 97CE88B31E08A9A400D1EFFF /* LeagueGothic-CondensedRegular.ttf */; };
 		97CE88B81E08A9A400D1EFFF /* LeagueGothic-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 97CE88B41E08A9A400D1EFFF /* LeagueGothic-Italic.ttf */; };
@@ -49,6 +50,7 @@
 		972A1C2D1DF3736800BADFED /* ChoreEvent+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ChoreEvent+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		972A1C361DF3FDE500BADFED /* ChoreDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChoreDetailsVC.swift; sourceTree = "<group>"; };
 		975A4A0F1E14B915003CD14D /* SelectedChoreVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedChoreVC.swift; sourceTree = "<group>"; };
+		97B8BEBD202BFEC30049044A /* UIViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExt.swift; sourceTree = "<group>"; };
 		97CE88B21E08A9A400D1EFFF /* LeagueGothic-CondensedItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LeagueGothic-CondensedItalic.ttf"; sourceTree = "<group>"; };
 		97CE88B31E08A9A400D1EFFF /* LeagueGothic-CondensedRegular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LeagueGothic-CondensedRegular.ttf"; sourceTree = "<group>"; };
 		97CE88B41E08A9A400D1EFFF /* LeagueGothic-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LeagueGothic-Italic.ttf"; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 		971992741DE2B11B00800A28 /* ChoreTracker */ = {
 			isa = PBXGroup;
 			children = (
+				97B8BEBC202BFE250049044A /* Extensions */,
 				97DFBDB21E06125300C290C4 /* Fonts */,
 				972A1C321DF3737200BADFED /* Model */,
 				972A1C331DF3738600BADFED /* Generated */,
@@ -147,6 +150,14 @@
 				975A4A0F1E14B915003CD14D /* SelectedChoreVC.swift */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		97B8BEBC202BFE250049044A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				97B8BEBD202BFEC30049044A /* UIViewExt.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 		97DFBDB21E06125300C290C4 /* Fonts */ = {
@@ -243,6 +254,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97B8BEBE202BFEC30049044A /* UIViewExt.swift in Sources */,
 				9719927E1DE2B11B00800A28 /* ChoreTracker.xcdatamodeld in Sources */,
 				972A1C2E1DF3736800BADFED /* ChoreType+CoreDataClass.swift in Sources */,
 				9725747C1E03BD920055B971 /* Date+getElapsedInterval.swift in Sources */,
