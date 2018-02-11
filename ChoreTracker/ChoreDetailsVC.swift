@@ -115,7 +115,7 @@ class ChoreDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         chore7.name = "Groceries"
         
         let chore8 = ChoreType(context: context)
-        chore8.name = "Comforter"
+        chore8.name = "Misc."
         
         let chore9 = ChoreType(context: context)
         chore9.name = "Dusting"
@@ -306,7 +306,9 @@ class ChoreDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDele
             
             let mostRecentChoreEvent = getRecentChoreEvent(choreType: currentChoreType!)
             
-            saveMostRecentChoreTypeDate(chore: mostRecentChoreEvent, onDelete: true)
+            if mostRecentChoreEvent.date != nil {
+                saveMostRecentChoreTypeDate(chore: mostRecentChoreEvent, onDelete: true)
+            }
     
         }
         
