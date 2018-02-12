@@ -38,9 +38,7 @@ class ChoreDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         notes!.layer.borderColor = UIColor.black.cgColor
         
         
-        if (!doChoreTypesExist()) {
-            createChoreTypes()
-        }
+
         
         getChores()
         
@@ -91,39 +89,6 @@ class ChoreDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         
     }
     
-    func createChoreTypes() {
-        
-        let chore = ChoreType(context: context)
-        chore.name = "Vacuum"
-        
-        let chore2 = ChoreType(context: context)
-        chore2.name = "Mop"
-        
-        let chore3 = ChoreType(context: context)
-        chore3.name = "Kitchen"
-        
-        let chore4 = ChoreType(context: context)
-        chore4.name = "Dishwasher"
-        
-        let chore5 = ChoreType(context: context)
-        chore5.name = "Bathroom"
-        
-        let chore6 = ChoreType(context: context)
-        chore6.name = "Laundry"
-        
-        let chore7 = ChoreType(context: context)
-        chore7.name = "Groceries"
-        
-        let chore8 = ChoreType(context: context)
-        chore8.name = "Misc."
-        
-        let chore9 = ChoreType(context: context)
-        chore9.name = "Dusting"
-        
-        ad.saveContext()
-        
-        
-    }
     
     func getChores() {
         
@@ -347,13 +312,6 @@ class ChoreDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     }
     
     
-    func preventKeyboardFromBlockingText () {
-        
-        //dirty hack, don't know why keyboard notification isn't working, hard coding value
-        //fix this later!!!! (See eariler commit)
-        
-    }
-    
     override func viewWillLayoutSubviews(){
         
         super.viewWillLayoutSubviews()
@@ -361,30 +319,6 @@ class ChoreDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         
     }
     
-    func doChoreTypesExist() -> Bool {
-        
-        let fetchRequest: NSFetchRequest<ChoreType> = ChoreType.fetchRequest()
-        
-        do {
-            
-            let chores = try context.fetch(fetchRequest)
-            if chores.count == 0 {
-                
-                return false
-                
-            } else {
-                
-                return true
-            }
-            
-        } catch {
-            
-            //this needs to be handled properly
-            return false
-            
-        }
-        
-    }
 
 
     

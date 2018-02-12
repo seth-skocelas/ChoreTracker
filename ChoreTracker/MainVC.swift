@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MainVC.swift
 //  ChoreTracker
 //
 //  Created by Seth Skocelas on 11/20/16.
@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
+class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var segment: UISegmentedControl!
@@ -21,13 +21,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
         tableView.delegate = self
         tableView.dataSource = self
         
-        //createChoreTypes()
-        //generateTestData()
+        if (!doChoreTypesExist()) {
+            createChoreTypes()
+        }
+        
         attemptFetch()
     }
     
@@ -277,7 +278,25 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         chore2.name = "Mop"
         
         let chore3 = ChoreType(context: context)
-        chore3.name = "Test"
+        chore3.name = "Kitchen"
+        
+        let chore4 = ChoreType(context: context)
+        chore4.name = "Dishwasher"
+        
+        let chore5 = ChoreType(context: context)
+        chore5.name = "Bathroom"
+        
+        let chore6 = ChoreType(context: context)
+        chore6.name = "Laundry"
+        
+        let chore7 = ChoreType(context: context)
+        chore7.name = "Groceries"
+        
+        let chore8 = ChoreType(context: context)
+        chore8.name = "Misc."
+        
+        let chore9 = ChoreType(context: context)
+        chore9.name = "Dusting"
         
         ad.saveContext()
         
@@ -285,9 +304,31 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     
-    
-    
-    
+    func doChoreTypesExist() -> Bool {
+        
+        let fetchRequest: NSFetchRequest<ChoreType> = ChoreType.fetchRequest()
+        
+        do {
+            
+            let chores = try context.fetch(fetchRequest)
+            if chores.count == 0 {
+                
+                return false
+                
+            } else {
+                
+                return true
+            }
+            
+        } catch {
+            
+            //this needs to be handled properly
+            return false
+            
+        }
+        
+    }
+
     
 }
 
