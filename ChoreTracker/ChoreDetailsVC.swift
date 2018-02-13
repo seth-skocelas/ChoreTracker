@@ -146,7 +146,9 @@ class ChoreDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDele
 
     
     
-    func saveMostRecentChoreTypeDate (chore: ChoreEvent, onDelete: Bool) {
+    func updateMostRecentChoreTypeDate (chore: ChoreEvent, onDelete: Bool, isLastChoreType: Bool) {
+        
+        //This could be broken out into 2 functions to handle deletion updates separately
         
         var choreTypes = [ChoreType]()
         
@@ -171,6 +173,10 @@ class ChoreDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDele
             
             choreTypes[0].mostRecent = chore.date
             
+        } else if (onDelete && isLastChoreType) {
+            
+            choreTypes[0].mostRecent = nil
+            
         } else if (chore.date as! Date > currentChoreType.mostRecent as! Date) {
             
             choreTypes[0].mostRecent = chore.date
@@ -178,6 +184,7 @@ class ChoreDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         } else if (onDelete) {
             
             choreTypes[0].mostRecent = chore.date
+            
         }
         
         ad.saveContext()
@@ -211,7 +218,7 @@ class ChoreDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         
         ad.saveContext()
         
-        saveMostRecentChoreTypeDate(chore: chore, onDelete: false)
+        updateMostRecentChoreTypeDate(chore: chore, onDelete: false, isLastChoreType: false)
         
         _ = navigationController?.popViewController(animated: true)
         
@@ -272,7 +279,9 @@ class ChoreDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDele
             let mostRecentChoreEvent = getRecentChoreEvent(choreType: currentChoreType!)
             
             if mostRecentChoreEvent.date != nil {
-                saveMostRecentChoreTypeDate(chore: mostRecentChoreEvent, onDelete: true)
+                updateMostRecentChoreTypeDate(chore: mostRecentChoreEvent, onDelete: true, isLastChoreType: false)
+            } else {
+                updateMostRecentChoreTypeDate(chore: mostRecentChoreEvent, onDelete: true, isLastChoreType: true)
             }
     
         }
