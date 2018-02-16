@@ -20,6 +20,7 @@ class ChoreDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     
     var chores = [ChoreType]()
     var itemToEdit: ChoreEvent?
+    var currentChoreType: ChoreType?
     weak var activeTextView: UITextView?
     var keyboardSize: CGSize?
     var keyboardSizeRetrieved: Bool = false
@@ -37,16 +38,15 @@ class ChoreDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         notes!.layer.borderWidth = 1
         notes!.layer.borderColor = UIColor.black.cgColor
         
-        
-
-        
-        getChores()
-        
-        if itemToEdit != nil {
-            
+        if currentChoreType != nil {
+            chores.append(currentChoreType!)
+        } else if itemToEdit != nil {
+            chores.append((itemToEdit?.choreType)!)
             loadItemData()
-            
+        } else {
+            getChores()
         }
+        
     }
     
     

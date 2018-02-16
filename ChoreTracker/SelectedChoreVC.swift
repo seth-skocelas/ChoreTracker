@@ -25,6 +25,10 @@ class SelectedChoreVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         tableView.delegate = self
         tableView.dataSource = self
         
+        if let title = itemToEdit?.name {
+            self.title = title
+        }
+        
         //generateTestData()
         attemptFetch()
     }
@@ -59,16 +63,18 @@ class SelectedChoreVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         if segue.identifier == "ChoreDetailsVC" {
             
             if let destination = segue.destination as? ChoreDetailsVC {
-                
                 if let chore = sender as? ChoreEvent {
-                    
                     destination.itemToEdit = chore
                 }
-                
             }
-            
         }
         
+        if segue.identifier == "ChoreDetailsVCNew" {
+            
+            if let destination = segue.destination as? ChoreDetailsVC {
+                destination.currentChoreType = self.itemToEdit
+            }
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

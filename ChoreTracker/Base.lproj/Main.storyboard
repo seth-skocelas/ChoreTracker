@@ -70,7 +70,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="144"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kqu-rb-JUT">
+                                                <view multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kqu-rb-JUT">
                                                     <rect key="frame" x="0.0" y="0.0" width="343" height="144"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QFj-4w-iDU">
@@ -82,7 +82,7 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" scrollEnabled="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cCI-6E-Nis">
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" scrollEnabled="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cCI-6E-Nis">
                                                             <rect key="frame" x="8" y="35" width="334" height="102"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <constraints>
@@ -142,7 +142,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="ChoreTracker" id="kU7-A7-4j5">
-                        <barButtonItem key="backBarButtonItem" title="List" style="plain" id="B0x-LF-Dhr"/>
+                        <barButtonItem key="backBarButtonItem" title=" " style="plain" id="B0x-LF-Dhr"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="YAz-MP-WWp">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
@@ -160,7 +160,7 @@
             </objects>
             <point key="canvasLocation" x="-799" y="885"/>
         </scene>
-        <!--Filtered Results-->
+        <!--Selected Chore List-->
         <scene sceneID="XM4-2X-GGO">
             <objects>
                 <viewController id="XU5-ss-Fr9" customClass="SelectedChoreVC" customModule="ChoreTracker" customModuleProvider="target" sceneMemberID="viewController">
@@ -210,7 +210,7 @@
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" scrollEnabled="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="RZr-gg-rzh">
+                                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" scrollEnabled="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="RZr-gg-rzh">
                                                                     <rect key="frame" x="8" y="35" width="334" height="102"/>
                                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                     <constraints>
@@ -279,8 +279,8 @@
                             <constraint firstItem="xgS-7W-fSV" firstAttribute="leading" secondItem="WCI-ga-1mV" secondAttribute="leading" id="tL9-gC-IRT"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Filtered Results" id="2MX-NU-weu">
-                        <barButtonItem key="backBarButtonItem" title="Main" id="oCH-95-4Za"/>
+                    <navigationItem key="navigationItem" title="Selected Chore List" id="2MX-NU-weu">
+                        <barButtonItem key="backBarButtonItem" title=" " id="NgM-CE-LgP"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="YzU-4s-6dR">
                             <connections>
                                 <segue destination="zm4-W2-AX7" kind="show" identifier="ChoreDetailsVCNew" id="9Qy-6f-Gtp"/>
@@ -383,6 +383,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add/Edit Chore" id="Cf8-zR-Pii">
+                        <barButtonItem key="backBarButtonItem" title=" " id="ref-eP-QXh"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="trash" id="7s4-Dh-Yxf">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
@@ -403,7 +404,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="yu5-EB-E7Z"/>
+        <segue reference="9Qy-6f-Gtp"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>
