@@ -11,6 +11,7 @@ import Foundation
 
 //Source: http://stackoverflow.com/questions/34457434/swift-convert-time-to-time-ago
 //Minor edits made to correct bug with months and days
+//Also added a future date consideration
 
 extension Date {
     
@@ -18,7 +19,9 @@ extension Date {
         
         let interval = Calendar.current.dateComponents([.year, .month, .day], from: self, to: Date())
         
-        if let year = interval.year, year > 0 {
+        if self.timeIntervalSinceNow > Date().timeIntervalSinceNow + 1000 {
+            return "Future Date"
+        } else if let year = interval.year, year > 0 {
             return year == 1 ? "\(year)" + " " + "year ago" :
                 "\(year)" + " " + "years ago"
         } else if let month = interval.month, month > 0 {
