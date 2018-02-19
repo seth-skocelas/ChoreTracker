@@ -36,7 +36,7 @@
             </objects>
             <point key="canvasLocation" x="-799" y="123"/>
         </scene>
-        <!--ChoreTracker-->
+        <!--MyChoreTracker-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MainVC" customModule="ChoreTracker" customModuleProvider="target" sceneMemberID="viewController">
@@ -141,7 +141,7 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="vBi-fy-zbM" secondAttribute="bottom" constant="8" id="td5-pv-c9r"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="ChoreTracker" id="kU7-A7-4j5">
+                    <navigationItem key="navigationItem" title="MyChoreTracker" id="kU7-A7-4j5">
                         <barButtonItem key="backBarButtonItem" title=" " style="plain" id="B0x-LF-Dhr"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="YAz-MP-WWp">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -404,7 +404,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="9Qy-6f-Gtp"/>
+        <segue reference="yu5-EB-E7Z"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>
