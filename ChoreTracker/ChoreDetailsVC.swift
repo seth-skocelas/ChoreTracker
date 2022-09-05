@@ -177,7 +177,7 @@ class ChoreDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDele
             
             choreTypes[0].mostRecent = nil
             
-        } else if (chore.date as! Date > currentChoreType.mostRecent as! Date) {
+        } else if (chore.date! as Date > currentChoreType.mostRecent! as Date) {
             
             choreTypes[0].mostRecent = chore.date
             
@@ -243,7 +243,7 @@ class ChoreDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         
         if let chore = itemToEdit {
             
-            datePicker.date = chore.date as! Date
+            datePicker.date = chore.date! as Date
             notes.text = chore.notes
     
             if let type = chore.choreType {

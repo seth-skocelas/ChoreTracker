@@ -23,7 +23,7 @@ class SelectedChoreCell: UITableViewCell {
         
         if chore.date != nil {
             //completionDate.text = formatter.string(from: chore.date as! Date)
-            completionDate.text = (chore.date as! Date).getElapsedInterval()
+            completionDate.text = (chore.date! as Date).getElapsedInterval()
         }
         
         choreNotes.text = chore.notes
